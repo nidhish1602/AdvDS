@@ -69,35 +69,34 @@ void printList (Node *head) {
   
 int main () {  
     Node *head = NULL; 
-    int beg, end, n;
+    int n;
     
-    cout << "Number of nodes in the linkedLists? \n"; 
+    insertEnd(&head, 5);
+    insertEnd(&head, 6);
+    insertEnd(&head, 7);
+    insertEnd(&head, 8);
+    printList(head);  
+    cout<<endl;
+
+
+    cout << "How many nodes do you wanna insert from beginning? \n"; 
     cin >> n;
 
     while (n--) {
       int val;
       cin >> val;
-      insertEnd(&head, val);  
-    }
-    
-    cout << "How many time you wanna insert from beginning? \n"; 
-    cin >> beg;
-
-    while (beg--) {
-      int val;
-      cin >> val;
       insertBeg(&head, val);  
     }
 
-    cout << "How many time you wanna insert from end? \n"; 
-    cin >> end;
+    cout << "How many nodes do you wanna insert from end? \n"; 
+    cin >> n;
     
-    while (end--) {
+    while (n--) {
       int val;
       cin >> val;
       insertEnd(&head, val);  
     }
-    
+
   
     printList(head);  
     return 0;  
