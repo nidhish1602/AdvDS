@@ -70,6 +70,7 @@ int Islands(vector<vector<int> > arr) {
 
 int main(){
 	int m, n, val;
+	cout << "Enter the dimensions of the matrix" << endl;
 	cin >> m >> n;
   vector<vector<int> > arr(m , vector<int> (n, 0));
 
