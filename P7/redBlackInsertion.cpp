@@ -148,9 +148,6 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
   
             Node *uncle_pt = grand_parent_pt->right; 
   
-            /* Case : 1 
-               The uncle of pt is also red 
-               Only Recoloring required */
             if (uncle_pt != NULL && uncle_pt->color ==  
                                                    RED) 
             { 
@@ -162,9 +159,6 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
   
             else
             { 
-                /* Case : 2 
-                   pt is right child of its parent 
-                   Left-rotation required */
                 if (pt == parent_pt->right) 
                 { 
                     rotateLeft(root, parent_pt); 
@@ -172,9 +166,6 @@ void RBTree::fixViolation(Node *&root, Node *&pt)
                     parent_pt = pt->parent; 
                 } 
   
-                /* Case : 3 
-                   pt is left child of its parent 
-                   Right-rotation required */
                 rotateRight(root, grand_parent_pt); 
                 swap(parent_pt->color,  
                            grand_parent_pt->color); 
