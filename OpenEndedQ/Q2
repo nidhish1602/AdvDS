@@ -1,31 +1,33 @@
-#include<bits/stdc++.h> 
-using namespace std; 
-
-void printUnique(int l, int r) 
-{
-    for (int i=l ; i<=r ; i++) 
-    { 
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ vector<int> solve(int l, int r) {
+   vector<int> res;
+   for (int i = l ; i <= r ; i++) { 
         int num = i; 
         bool visited[10] = {false}; 
-
-        while (num) 
-        {  
-            if (visited[num % 10]) 
-                break; 
-  
-            visited[num%10] = true; 
-  
-            num = num/10; 
+        while (num){ 
+            if (visited[num % 10]) break; 
+            visited[num % 10] = true; 
+            num = num / 10; 
         } 
+        if (num == 0) {
+          cout << i << " "; 
+          res.push_back(i);
+        }
+    }
+    return res;
+ }
 
-        if (num == 0) 
-            cout << i << " "; 
-    } 
-} 
+int main() {
+  int l ,r;
+  cout<<"L = ";
+  cin >> l;
+  cout<<"R = ";
+  cin>>r;
+  cout<<endl;	
+  solve(l, r);
 
-int main() 
-{ 
-    int l = 1, r = 20; 
-    printUnique(l, r); 
-    return 0; 
-} 
+  return 0;
+}
